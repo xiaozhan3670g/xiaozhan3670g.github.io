@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on Even - A super concise theme for Hugo</title>
+    <link>https://garyan.xyz/categories/linux/</link>
+    <description>Recent content in Linux on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>&lt;a href=&#34;https://beian.miit.gov.cn/&#34;&gt;沪ICP备2022001004号&lt;/a&gt;</copyright>
+    <lastBuildDate>Thu, 17 Feb 2022 21:09:43 +0800</lastBuildDate><atom:link href="https://garyan.xyz/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ubuntu虚拟机启动自动挂载宿主机目录</title>
+      <link>https://garyan.xyz/post/mount-dir-with-virtualbox/</link>
+      <pubDate>Thu, 17 Feb 2022 21:09:43 +0800</pubDate>
+      
+      <guid>https://garyan.xyz/post/mount-dir-with-virtualbox/</guid>
+      <description>VirtualBox虚拟机配置ubuntu自动挂载宿主机目录</description>
+    </item>
+    
+  </channel>
+</rss>

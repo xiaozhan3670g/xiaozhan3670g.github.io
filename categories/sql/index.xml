@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SQL on Garyan&#39;s blog</title>
+    <link>https://garyan.xyz/categories/sql/</link>
+    <description>Recent content in SQL on Garyan&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>&lt;a href=&#34;https://beian.miit.gov.cn/&#34;&gt;沪ICP备2022001004号&lt;/a&gt;</copyright>
+    <lastBuildDate>Mon, 11 Apr 2022 20:37:41 +0800</lastBuildDate><atom:link href="https://garyan.xyz/categories/sql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>还在用维恩图可视化SQL的Join连接吗？你该看看这个</title>
+      <link>https://garyan.xyz/post/are-venn-diagrams-helpful-in-understanding-sql-joins/</link>
+      <pubDate>Mon, 11 Apr 2022 20:37:41 +0800</pubDate>
+      
+      <guid>https://garyan.xyz/post/are-venn-diagrams-helpful-in-understanding-sql-joins/</guid>
+      <description>维恩图是去年的事了 几周前，我在Reddit上发表了一篇关于 SQL Anti-Joins在Reddit上。在我分享后不久，我得到了这样的回应。 这引起</description>
+    </item>
+    
+  </channel>
+</rss>

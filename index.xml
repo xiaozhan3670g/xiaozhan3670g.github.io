@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Garyan&#39;s blog</title>
+    <link>https://garyan.xyz/</link>
+    <description>Recent content on Garyan&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>&lt;a href=&#34;https://beian.miit.gov.cn/&#34;&gt;沪ICP备2022001004号&lt;/a&gt;</copyright>
+    <lastBuildDate>Wed, 08 Jun 2022 13:47:03 +0800</lastBuildDate><atom:link href="https://garyan.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>单例模式</title>
+      <link>https://garyan.xyz/post/golang/golang-design-pattern-singleton/</link>
+      <pubDate>Wed, 08 Jun 2022 13:47:03 +0800</pubDate>
+      
+      <guid>https://garyan.xyz/post/golang/golang-design-pattern-singleton/</guid>
+      <description>使用懒惰模式的单例模式，使用双重检查加锁保证线程安全</description>
+    </item>
+    
+    <item>
+      <title>原型模式</title>
+      <link>https://garyan.xyz/post/golang/golang-design-pattern-prototype/</link>
+      <pubDate>Wed, 08 Jun 2022 13:42:53 +0800</pubDate>
+      
+      <guid>https://garyan.xyz/post/golang/golang-design-pattern-prototype/</guid>
+      <description>原型模式使对象能复制自身，并且暴露到接口中，使客户端面向接口编程时，不知道接口实际对象的情况下生成新的对象。 原型模式配合原型管理器使用，使得</description>
+    </item>
+    
+    <item>
+      <title>创建者模式</title>
+      <link>https://garyan.xyz/post/golang/golang-design-pattern-builder/</link>
+      <pubDate>Wed, 08 Jun 2022 13:39:20 +0800</pubDate>
+      
+      <guid>https://garyan.xyz/post/golang/golang-design-pattern-builder/</guid>
+      <description>创建者模式</description>
+    </item>
+    
+    <item>
+      <title>抽象工厂模式</title>
+      <link>https://garyan.xyz/post/golang/golang-design-pattern-abstract_factory/</link>
+      <pubDate>Wed, 08 Jun 2022 13:35:59 +0800</pubDate>
+      
+      <guid>https://garyan.xyz/post/golang/golang-design-pattern-abstract_factory/</guid>
+      <description>抽象工厂模式用于生成产品族的工厂，所生成的对象是有关联的。 如果抽象工厂退化成生成的对象无关联则成为工厂函数模式。 比如本例子中使用RDB和XM</description>
+    </item>
+    
+    <item>
+      <title>工厂方法模式</title>
+      <link>https://garyan.xyz/post/golang/golang-design-pattern-factory_method/</link>
+      <pubDate>Wed, 08 Jun 2022 10:54:18 +0800</pubDate>
+      
+      <guid>https://garyan.xyz/post/golang/golang-design-pattern-factory_method/</guid>
+      <description>工厂方法模式使用子类的方式延迟生成对象到子类中实现。Golang中不存在继承 所以使用匿名组合来实现</description>
+    </item>
+    
+    <item>
+      <title>简单工厂模式</title>
+      <link>https://garyan.xyz/post/golang/golang-design-pattern-simple_factory/</link>
+      <pubDate>Wed, 08 Jun 2022 10:42:09 +0800</pubDate>
+      
+      <guid>https://garyan.xyz/post/golang/golang-design-pattern-simple_factory/</guid>
+      <description>golang没有构造函数一说，所以一般会定义NewXXX函数来初始化相关类。 NewXXX 函数返回接口时就是简单工厂模式，也就是说Golang的一般推荐</description>
+    </item>
+    
+    <item>
+      <title>还在用维恩图可视化SQL的Join连接吗？你该看看这个</title>
+      <link>https://garyan.xyz/post/are-venn-diagrams-helpful-in-understanding-sql-joins/</link>
+      <pubDate>Mon, 11 Apr 2022 20:37:41 +0800</pubDate>
+      
+      <guid>https://garyan.xyz/post/are-venn-diagrams-helpful-in-understanding-sql-joins/</guid>
+      <description>维恩图是去年的事了 几周前，我在Reddit上发表了一篇关于 SQL Anti-Joins在Reddit上。在我分享后不久，我得到了这样的回应。 这引起</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://garyan.xyz/message/</link>
+      <pubDate>Sun, 27 Mar 2022 19:26:15 +0800</pubDate>
+      
+      <guid>https://garyan.xyz/message/</guid>
+      <description>来而不往非礼也 畅所欲言，有留必应</description>
+    </item>
+    
+    <item>
+      <title>关于</title>
+      <link>https://garyan.xyz/about/</link>
+      <pubDate>Thu, 17 Mar 2022 20:18:01 +0800</pubDate>
+      
+      <guid>https://garyan.xyz/about/</guid>
+      <description>Hello World 1 2 3 func main() { fmt.Println(&amp;#34;Hello World.&amp;#34;) }</description>
+    </item>
+    
+  </channel>
+</rss>

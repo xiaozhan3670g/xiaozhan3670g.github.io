@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>还在用维恩图可视化SQL的Join连接吗？你该看看这个 - Garyan&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="闻数起舞" /><meta name="description" content="维恩图是去年的事了 几周前，我在Reddit上发表了一篇关于 SQL Anti-Joins在Reddit上。在我分享后不久，我得到了这样的回应。 这引起" /><meta name="keywords" content="Garyan, 博客, golang, 前端, 后端, 手游DNF, 海外游戏" />
+
+
+<meta name="baidu-site-verification" content="6mvXEFmujHw4l4dJ" />
+
+
+
+<meta name="generator" content="Hugo 0.94.2 with theme even" />
+
+
+<link rel="canonical" href="https://garyan.xyz/post/are-venn-diagrams-helpful-in-understanding-sql-joins/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="还在用维恩图可视化SQL的Join连接吗？你该看看这个" />
+<meta property="og:description" content="维恩图是去年的事了 几周前，我在Reddit上发表了一篇关于 SQL Anti-Joins在Reddit上。在我分享后不久，我得到了这样的回应。 这引起" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://garyan.xyz/post/are-venn-diagrams-helpful-in-understanding-sql-joins/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-04-11T20:37:41+08:00" />
+<meta property="article:modified_time" content="2022-04-11T20:37:41+08:00" />
+
+<meta itemprop="name" content="还在用维恩图可视化SQL的Join连接吗？你该看看这个">
+<meta itemprop="description" content="维恩图是去年的事了 几周前，我在Reddit上发表了一篇关于 SQL Anti-Joins在Reddit上。在我分享后不久，我得到了这样的回应。 这引起"><meta itemprop="datePublished" content="2022-04-11T20:37:41+08:00" />
+<meta itemprop="dateModified" content="2022-04-11T20:37:41+08:00" />
+<meta itemprop="wordCount" content="1988">
+<meta itemprop="keywords" content="SQL," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="还在用维恩图可视化SQL的Join连接吗？你该看看这个"/>
+<meta name="twitter:description" content="维恩图是去年的事了 几周前，我在Reddit上发表了一篇关于 SQL Anti-Joins在Reddit上。在我分享后不久，我得到了这样的回应。 这引起"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Garyan</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Garyan</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">还在用维恩图可视化SQL的Join连接吗？你该看看这个</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-04-11 </span>
+        <div class="post-category">
+            <a href="/categories/sql/"> SQL </a>
+            </div>
+          <span class="more-meta"> 约 1988 字 </span>
+          <span class="more-meta"> 预计阅读 4 分钟 </span>
+        
+      </div>
+    </header>
+
+    
+    <div class="post-content">
+      <p>维恩图是去年的事了</p>
+<p><img src="/img/640.jpg" alt="图片由作者提供，灵感来自 R for Data Science"></p>
+<p>几周前，我在Reddit上发表了一篇关于 SQL Anti-Joins在Reddit上。在我分享后不久，我得到了这样的回应。</p>
+<p><img src="/img/640.png" alt="图片由作者提供"></p>
+<p>这引起了我的兴趣，因为到目前为止，我还没有读过或听说过有人认为维恩图是可视化SQL连接的坏方法，而我已经不断地用SQL编码了3年多。我个人认为，维恩图对于快速记忆和可视化两个表之间的连接类型很有帮助。所以这是我的回答。</p>
+<p><img src="/img/641.png" alt="图片由作者提供"></p>
+<p>在这篇评论之后，我得到了一些热情的回应，并意识到这个问题已经被广泛地讨论过了，而且背后有一些历史。当我在阅读更多相关内容时，我发现了一个流行的Reddit帖子，标题是, “Say NO to Venn Diagrams When Explaining Joins”.阅读别人对它的看法很有意思。我还发现了两年前发表在Towards Data Science上的一个相关的热门帖子，标题是, “ Can we stop with the SQL JOINs venn diagrams insanity?”.</p>
+<p>这场辩论让我想起了关于如何发音SQL的争论，或者当我第一次听到关于 tabs vs. spaces debate.我决定写这篇文章，因为我思考了双方的争论，然后发现了我认为被低估的SQL连接的可视化，我称之为格子旗图。</p>
+<p>快速的题外话：关于SQL的发音，SQL最初被拼成&rsquo;SEQUEL&rsquo;，后来才改成&rsquo;SQL&rsquo;。due to a trademark issue.</p>
+<p>尽管我对这个话题有自己的看法，但我认为值得说明的是，我相信争论双方的人都有一些有效的观点，这些可视化的方法都是表示SQL连接的有效方法。这场辩论之所以存在，是因为双方都从不同的学习方法中看到了好处，这也是可以的。当然，对于大多数人来说，可能有一个最佳的学习路径，但学习是一种量身定做的体验，所以我不想贬低其他人通过使用不同的可视化方式所获得的好处。但请记住，真正理解SQL连接的最好方法是进入代码并进行实践！&quot;。SQL Practice.com这是一个我发现的练习SQL的好资源。</p>
+<p><code>但请记住，真正理解SQL连接的最好方法是进入代码并进行实践。</code></p>
+<p>既然如此，我希望解决 &ldquo;SQL维恩图大辩论 &ldquo;中双方的关键点，并提出一个可能，只是可能，安抚双方人员的解决方案。</p>
+<h4 id="争论双方的关键点">争论双方的关键点</h4>
+<p>为了更好地理解双方的观点，我在Reddit上阅读了不少意见，以及一些文章。以下是我发现人们不同意使用维恩图来可视化SQL连接的原因。</p>
+<ul>
+<li>维恩图起源于集合理论，因此不 应该被用于可视化两个关系表之间的连接。</li>
+<li>有些人声称，在用维恩图介绍概念时，学生们很难理解连接。</li>
+<li>维恩图在技术上并不能正确表示一个连接的实际作用</li>
+<li>维恩图有各种限制：即不能很好地显示其他连接类型（如交叉连接），不能显示重复出现时的情况，等等。</li>
+</ul>
+<p>这些是我发现的那些反对使用维恩图的人的主要批评意见。赞成使用SQL文氏图的人主要回应了两点。</p>
+<ul>
+<li>虽然维恩图在技术上可能并不正确，但它有助于人们记住连接的类型，而且更简单易懂。</li>
+<li>根据所选列的不同，连接和集合操作的结果可能完全相同。</li>
+</ul>
+<p>不管你更同意哪一方，你现在对我决定写这篇文章的原因有了一些背景。</p>
+<h4 id="维恩图的一个替代解决方案">维恩图的一个替代解决方案</h4>
+<p>有一篇 popular article in 2016也反对使用维恩图，作者提出了另一种图，叫做 &ldquo;连接图&rdquo;。下面是一个内联接的例子，它被可视化为一个联接图。</p>
+<p><img src="/img/642.jpg" alt="图片由作者提供，灵感来自 Jooq Blog"></p>
+<p>这种图是有益的，因为它比维恩图更准确地表示了SQL连接中使用的表格结构。这个图的问题是，它以颜色显示主键，但在这些颜色中也有数字或字母。矩形内的字母和数字应该代表除了主键列（用颜色表示）之外的其他列，但这是这种可视化开始崩溃的地方。用一个矩形来表示多列，会让人感到困惑和不直观（至少对我来说是这样）。不管怎么说，这个可视化似乎对一些难以理解使用SQL连接的人有帮助。每个可视化都有其局限性。</p>
+<h4 id="方格旗图">方格旗图</h4>
+<p>当我在回顾将SQL连接可视化的不同方法时，我发现了我个人的最爱。我希望这张图可以弥补双方之间的差距，或者至少提供另一种选择，帮助人们理解SQL连接。</p>
+<p>这张图最初是由Hadley Wickham和Garrett Grolemund在他们的书中创建的 “R for Data Science”.的章节中可以找到该图。‘Relational data’.</p>
+<p>我在下面展示的作弊表中重新制作了这些图表，但我也创建了一个Github资源库，以便你可以下载图片 here.</p>
+<p><img src="/img/642.png" alt="">
+<img src="/img/643.png" alt=""></p>
+<h4 id="为什么我喜欢方格旗图">为什么我喜欢方格旗图？</h4>
+<p>以下是我喜欢这个图的所有原因。</p>
+<ul>
+<li>
+<p>比连接图更准确地表示一个连接，因为它的主键具有相同的颜色和数字。</p>
+</li>
+<li>
+<p>为每个表显示1个额外的数值列，以帮助可视化除主键列之外的列中的数据所发生的情况。</p>
+</li>
+<li>
+<p>连接线有助于简化视觉，使其容易看到连接行。</p>
+</li>
+<li>
+<p>与连接图类似，连接产生的输出表显示在右边</p>
+</li>
+<li>
+<p>在适用的情况下会显示空值，这正是在SQL中执行连接时的情况</p>
+</li>
+<li>
+<p>可以显示交叉连接，与维恩图相比，这是一个优势。</p>
+</li>
+<li>
+<p>显示了SQL语法供参考，类似于维恩图的小抄。</p>
+</li>
+</ul>
+<p>我仍然相信维恩图对于可视化SQL连接是很有用的，但它们所能代表的范围和准确性是有限的。希望这些格子旗图能够成为你学习SQL时的一个重要参考。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">闻数起舞</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2022-04-11
+        
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/img/wechat-qr-code.png">
+        <span>微信打赏</span>
+      </label>
+    
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/sql/">SQL</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/golang/golang-design-pattern-simple_factory/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">简单工厂模式</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:dtafgary@gmail.com" class="iconfont icon-email" title="email"></a>
+  <a href="https://garyan.xyz/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span><a href="https://beian.miit.gov.cn/">沪ICP备2022001004号</a></span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
+
+<script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?77b6c450ff98affee2c24853ed046b94";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+
+<script id="baidu_push">
+  (function(){
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+
+</body>
+</html>

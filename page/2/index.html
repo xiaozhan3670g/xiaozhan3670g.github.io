@@ -122,115 +122,46 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/golang/golang-design-pattern-singleton/">单例模式</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/golang/golang-design-pattern-simple_factory/">简单工厂模式</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2022-06-08 </span>
       <div class="post-category">
           <a href="/categories/golang/"> golang </a>
           </div>
-        <span class="more-meta"> 约 345 字 </span>
+        <span class="more-meta"> 约 321 字 </span>
         <span class="more-meta"> 预计阅读 1 分钟 </span>
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      使用懒惰模式的单例模式，使用双重检查加锁保证线程安全
+      golang没有构造函数一说，所以一般会定义NewXXX函数来初始化相关类。 NewXXX 函数返回接口时就是简单工厂模式，也就是说Golang的一般推荐
     </div>
     <div class="read-more">
-      <a href="/post/golang/golang-design-pattern-singleton/" class="read-more-link">阅读更多</a>
+      <a href="/post/golang/golang-design-pattern-simple_factory/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
 
     <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/golang/golang-design-pattern-prototype/">原型模式</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/are-venn-diagrams-helpful-in-understanding-sql-joins/">还在用维恩图可视化SQL的Join连接吗？你该看看这个</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2022-06-08 </span>
+      <span class="post-time"> 2022-04-11 </span>
       <div class="post-category">
-          <a href="/categories/golang/"> golang </a>
+          <a href="/categories/sql/"> SQL </a>
           </div>
-        <span class="more-meta"> 约 350 字 </span>
-        <span class="more-meta"> 预计阅读 1 分钟 </span>
+        <span class="more-meta"> 约 1988 字 </span>
+        <span class="more-meta"> 预计阅读 4 分钟 </span>
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      原型模式使对象能复制自身，并且暴露到接口中，使客户端面向接口编程时，不知道接口实际对象的情况下生成新的对象。 原型模式配合原型管理器使用，使得
+      维恩图是去年的事了 几周前，我在Reddit上发表了一篇关于 SQL Anti-Joins在Reddit上。在我分享后不久，我得到了这样的回应。 这引起
     </div>
     <div class="read-more">
-      <a href="/post/golang/golang-design-pattern-prototype/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/golang/golang-design-pattern-builder/">创建者模式</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2022-06-08 </span>
-      <div class="post-category">
-          <a href="/categories/golang/"> golang </a>
-          </div>
-        <span class="more-meta"> 约 286 字 </span>
-        <span class="more-meta"> 预计阅读 1 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      创建者模式
-    </div>
-    <div class="read-more">
-      <a href="/post/golang/golang-design-pattern-builder/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/golang/golang-design-pattern-abstract_factory/">抽象工厂模式</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2022-06-08 </span>
-      <div class="post-category">
-          <a href="/categories/golang/"> golang </a>
-          </div>
-        <span class="more-meta"> 约 521 字 </span>
-        <span class="more-meta"> 预计阅读 2 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      抽象工厂模式用于生成产品族的工厂，所生成的对象是有关联的。 如果抽象工厂退化成生成的对象无关联则成为工厂函数模式。 比如本例子中使用RDB和XM
-    </div>
-    <div class="read-more">
-      <a href="/post/golang/golang-design-pattern-abstract_factory/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/golang/golang-design-pattern-factory_method/">工厂方法模式</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2022-06-08 </span>
-      <div class="post-category">
-          <a href="/categories/golang/"> golang </a>
-          </div>
-        <span class="more-meta"> 约 405 字 </span>
-        <span class="more-meta"> 预计阅读 1 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      工厂方法模式使用子类的方式延迟生成对象到子类中实现。Golang中不存在继承 所以使用匿名组合来实现
-    </div>
-    <div class="read-more">
-      <a href="/post/golang/golang-design-pattern-factory_method/" class="read-more-link">阅读更多</a>
+      <a href="/post/are-venn-diagrams-helpful-in-understanding-sql-joins/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
@@ -238,11 +169,11 @@
     </section>
   
   <nav class="pagination">
-    
-    <a class="next" href="/page/2/">
-        <span class="next-text">下一页</span>
-        <i class="iconfont icon-right"></i>
+    <a class="prev" href="/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text">上一页</span>
       </a>
+    
   </nav>
         </div>
         

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Garyan&#39;s blog</title>
+    <link>https://garyan.xyz/categories/</link>
+    <description>Recent content in Categories on Garyan&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>&lt;a href=&#34;https://beian.miit.gov.cn/&#34;&gt;沪ICP备2022001004号&lt;/a&gt;</copyright>
+    <lastBuildDate>Wed, 08 Jun 2022 13:47:03 +0800</lastBuildDate><atom:link href="https://garyan.xyz/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>golang</title>
+      <link>https://garyan.xyz/categories/golang/</link>
+      <pubDate>Wed, 08 Jun 2022 13:47:03 +0800</pubDate>
+      
+      <guid>https://garyan.xyz/categories/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SQL</title>
+      <link>https://garyan.xyz/categories/sql/</link>
+      <pubDate>Mon, 11 Apr 2022 20:37:41 +0800</pubDate>
+      
+      <guid>https://garyan.xyz/categories/sql/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
