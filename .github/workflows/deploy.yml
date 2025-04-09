@@ -21,11 +21,6 @@ jobs:
 
     - name: Build
       run: npm run build
-    
-    - name: Move out directory content
-      run: |
-        mv out/next-tools/* out/
-        rm -rf out/next-tools
 
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@v4
