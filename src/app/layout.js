@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from 'next/link';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,18 +19,24 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="zh">
+    <html lang="zh-CN">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <nav className="bg-white shadow-sm">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between h-16">
-              <div className="flex items-center">
-                <a href="/" className="text-xl font-bold text-gray-900">
-                  Next Tools
-                </a>
-              </div>
+        <nav className="bg-gray-800 text-white p-4">
+          <div className="max-w-7xl mx-auto flex justify-between items-center">
+            <div className="text-lg font-bold">开发者工具集</div>
+            <div className="flex space-x-4">
+              {/* 将 <a> 标签替换为 <Link> 组件 */}
+              <Link href="/" className="hover:text-blue-400">
+                首页
+              </Link>
+              <Link href="/tools/timestamp" className="hover:text-blue-400">
+                时间戳工具
+              </Link>
+              <Link href="/tools/json" className="hover:text-blue-400">
+                JSON 工具
+              </Link>
             </div>
           </div>
         </nav>
