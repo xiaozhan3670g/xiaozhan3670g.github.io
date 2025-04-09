@@ -4,7 +4,8 @@ output: 'export',  // 启用静态导出
 images: {
     unoptimized: true,  // 禁用图片优化，因为静态导出不支持
 },
-// basePath: '/',  // 设置基础路径，用于 GitHub Pages
+basePath: '/next-tools', // 添加这行，因为GitHub Pages项目站点需要这个路径
+assetPrefix: '/next-tools/', // 添加这行，确保静态资源使用正确的路径
 };
 
 export default nextConfig;
