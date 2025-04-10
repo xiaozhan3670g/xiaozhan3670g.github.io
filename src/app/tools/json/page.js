@@ -57,7 +57,7 @@ export default function JsonFormatter() {
 
   return (
     <div className="max-w-4xl mx-auto py-8 px-4">
-      <h1 className="text-2xl font-bold mb-6">JSON 格式化、压缩与校验工具</h1>
+      <h1 className="text-2xl font-bold mb-6">JSON 格式化、压缩与校验</h1>
 
       <div className="bg-white p-6 rounded-lg shadow-md mb-8">
         <label className="block text-sm font-medium text-gray-700 mb-2">
