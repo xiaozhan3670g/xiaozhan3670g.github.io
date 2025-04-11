@@ -21,10 +21,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="zh-CN">
+      <head>
+        <GoogleAnalytics />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <GoogleAnalytics GA_MEASUREMENT_ID="G-XJ6GXMENP6"></GoogleAnalytics>
         <NavBar />
         <main className="min-h-screen bg-gray-50">{children}</main>
       </body>
