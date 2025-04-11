@@ -1,6 +1,7 @@
 import PageContainer from "@/components/PageContainer";
 import Link from "next/link";
 
+
 export default function Home() {
   return (
       <PageContainer>
@@ -56,3 +57,4 @@ export default function Home() {
         </PageContainer>
   );
 }
+

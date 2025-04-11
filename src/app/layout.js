@@ -1,7 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/NavBar"; // 将导航栏逻辑移到子组件
-import PageContainer from "@/components/PageContainer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,3 +29,4 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+
