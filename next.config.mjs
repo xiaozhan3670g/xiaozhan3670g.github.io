@@ -6,9 +6,9 @@ images: {
 },
 // basePath: '/next-tools', // 添加这行，因为GitHub Pages项目站点需要这个路径
 // assetPrefix: '/next-tools/', // 添加这行，确保静态资源使用正确的路径
-generateStaticParams: async () => {
-    return []
-  },
+// generateStaticParams: async () => {
+//     return []
+//   },
 };
 
 export default nextConfig;
