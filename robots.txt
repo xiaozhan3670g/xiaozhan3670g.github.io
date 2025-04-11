@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://xiaozhan3670g.github.io/sitemap.xml
