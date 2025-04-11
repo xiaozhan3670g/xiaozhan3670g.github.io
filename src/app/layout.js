@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <GoogleAnalytics GA_MEASUREMENT_ID={process.env.NEXT_PUBLIC_GA_ID}></GoogleAnalytics>
+        <GoogleAnalytics GA_MEASUREMENT_ID="G-XJ6GXMENP6"></GoogleAnalytics>
         <NavBar />
         <main className="min-h-screen bg-gray-50">{children}</main>
       </body>
