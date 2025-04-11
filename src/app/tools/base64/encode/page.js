@@ -1,5 +1,6 @@
 'use client';
 
+import PageContainer from '@/components/PageContainer';
 import { useState } from 'react';
 
 export default function Base64Encode() {
@@ -21,7 +22,7 @@ export default function Base64Encode() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto py-8 px-4">
+    <PageContainer>
       <h1 className="text-2xl font-bold mb-6">Base64 编码工具</h1>
       
 
@@ -109,6 +110,6 @@ export default function Base64Encode() {
           </div>
         </div>
       </div>
-    </div>
+    </PageContainer>
   );
 }

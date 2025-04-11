@@ -1,5 +1,6 @@
 'use client';
 
+import PageContainer from '@/components/PageContainer';
 import { useState } from 'react';
 
 export default function JsonFormatter() {
@@ -56,7 +57,7 @@ export default function JsonFormatter() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto py-8 px-4">
+    <PageContainer>
       <h1 className="text-2xl font-bold mb-6">JSON 格式化、压缩与校验</h1>
 
       <div className="bg-white p-6 rounded-lg shadow-md mb-8">
@@ -115,6 +116,43 @@ export default function JsonFormatter() {
           <strong>错误:</strong> {error}
         </div>
       )}
-    </div>
+
+    <div className="mt-8 bg-gray-50 p-6 rounded-lg">
+      <h2 className="text-lg font-semibold mb-4">工具说明</h2>
+      <div className="space-y-4">
+        <div>
+          <h3 className="font-medium text-gray-700 mb-2">🔧 功能介绍</h3>
+          <ul className="list-disc list-inside text-gray-600 space-y-1">
+            <li><span className="font-medium">格式化</span>：将紧凑的 JSON 转换为缩进格式，提高可读性</li>
+            <li><span className="font-medium">压缩</span>：移除所有空格和换行，减少数据体积</li>
+            <li><span className="font-medium">去除转义</span>：处理 JSON 字符串中的转义字符</li>
+            <li><span className="font-medium">复制结果</span>：一键复制处理后的内容</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="font-medium text-gray-700 mb-2">📝 JSON 语法要点</h3>
+          <ul className="list-disc list-inside text-gray-600 space-y-1">
+            <li>对象使用花括号 {`{}`}，数组使用方括号 {`[]`}</li>
+            <li>属性名必须使用双引号 {`""`} 包裹</li>
+            <li>字符串值也需要使用双引号</li>
+            <li>数值可以直接书写，支持整数和浮点数</li>
+            <li>布尔值使用 true 或 false</li>
+            <li>null 表示空值</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="font-medium text-gray-700 mb-2">💡 使用技巧</h3>
+          <ul className="list-disc list-inside text-gray-600 space-y-1">
+            <li>开发调试时使用格式化功能提高代码可读性</li>
+            <li>生产环境建议使用压缩功能减少数据传输量</li>
+            <li>处理后端返回数据时可以使用去除转义功能</li>
+            <li>遇到格式错误时，仔细检查是否缺少逗号或引号</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </PageContainer>
   );
 }

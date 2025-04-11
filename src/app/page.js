@@ -1,12 +1,9 @@
-import Navbar from "@/components/NavBar";
+import PageContainer from "@/components/PageContainer";
 import Link from "next/link";
 
 export default function Home() {
   return (
-    <>
-      {/* <Navbar /> */}
-      <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-        
+      <PageContainer>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Link 
             href="/tools/timestamp"
@@ -56,7 +53,6 @@ export default function Home() {
             </p>
           </Link>
         </div>
-      </div>
-    </>
+        </PageContainer>
   );
 }

@@ -1,5 +1,6 @@
 'use client';
 
+import PageContainer from '@/components/PageContainer';
 import { useState } from 'react';
 
 export default function Base64Decode() {
@@ -21,11 +22,8 @@ export default function Base64Decode() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto py-8 px-4">
+    <PageContainer>
       <h1 className="text-2xl font-bold mb-6">Base64 解码工具</h1>
-      
-
-
       <div className="bg-white p-6 rounded-lg shadow-md mb-8">
         <label className="block text-sm font-medium text-gray-700 mb-2">
           输入要解码的 Base64 字符串
@@ -103,6 +101,6 @@ export default function Base64Decode() {
           </div>
         </div>
       </div>
-    </div>
+    </PageContainer>
   );
 }

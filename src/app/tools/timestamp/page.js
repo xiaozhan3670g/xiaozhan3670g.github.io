@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import PageContainer from "@/components/PageContainer";
 
 export default function TimestampConverter() {
   const [timestamp, setTimestamp] = useState('');
@@ -96,7 +97,7 @@ export default function TimestampConverter() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto py-8 px-4">
+    <PageContainer>
       <h1 className="text-2xl font-bold mb-6">Unix 时间戳转换器</h1>
 
       <div className="bg-white p-6 rounded-lg shadow-md mb-8">
@@ -193,6 +194,6 @@ export default function TimestampConverter() {
           </p>
         </div>
       </div>
-    </div>
+    </PageContainer>
   );
 }
